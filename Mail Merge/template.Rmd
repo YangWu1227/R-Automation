@@ -1,0 +1,30 @@
+---
+title: "Automated Mail Template"
+output: blastula::blastula_email
+params:
+    name: value
+    signoff: value
+---
+
+Dear `r params[["name"]]`,
+
+This is a test run for a mail merge using the [ R blastula package](https://bookdown.org/yihui/rmarkdown-cookbook/blastula-email.html). Apologies for this email spam; feel free to delete. Perhaps, if it is not too much trouble, an email to let me know that you've successfully received this would be much appreciated. Many thanks!     
+
+```{r, echo=FALSE, fig.align='center'}
+mtcars %>%
+  ggplot(
+    data = .,
+    mapping = aes(x = hp, y = mpg, color = as.factor(cyl))
+  ) +
+  geom_point() +
+  labs(
+    x = "Horse Power",
+    y = "Mile Per Gallon",
+    color = "Cylinders"
+  )
+```
+
+Best regards,
+
+`r params[["signoff"]]`
+
