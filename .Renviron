@@ -1,0 +1,6 @@
+# Read the documentation ?Sys.getenv() to get the ‘environment variables’ list
+
+# Set default library location
+# The wildcard %a is the architecture (CPU) R was built on, i.e., the value of R.version[["arch"]]
+# The wildcard %v is the R version number excluding the patchlevel (e.g., 4.1)
+R_LIBS_USER=~/Library/R/%a/%v/library
