@@ -1,1 +1,1 @@
-Reusable R code for automating various tasks.
+Reusable R code for automating various tasks and R learning.
