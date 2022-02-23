@@ -1,4 +1,4 @@
-# Attach devtools and testhat in start-up .Rprofile file
+# Attach devtools and testhat in start-up .Rprofile file ------------------
 if (interactive()) {
   # Welcome message
   message(paste0("Yo ", Sys.info()["user"], ", let's get rolling!"))
@@ -7,7 +7,8 @@ if (interactive()) {
   suppressMessages(require(testthat))
 }
 
-# Personal defaults
+
+# Personal defaults -------------------------------------------------------
 options(
   usethis.full_name = "Yang Wu",
   usethis.description = list(
@@ -19,7 +20,14 @@ options(
   usethis.protocol = "ssh"
 )
 
-# Create directories ".Renviron.d" and ".Rprofile.d"
+
+# Create directories ".Renviron.d" and ".Rprofile.d" ----------------------
 # Use "*.R" filename extension for .Rprofile.d" and "*.Renviron" for ".Renviron.d" 
 # These can be sourced as follows--- source("~/.Rprofile.d/*.R") or source("~/Renviron.d/*.Renviron")
 tryCatch(startup::startup(), error=function(ex) message(".Rprofile error: ", conditionMessage(ex)))
+
+
+# Python default ----------------------------------------------------------
+Sys.setenv(RETICULATE_PYTHON = "~/opt/anaconda3/envs/python_automation/bin/python3.9")
+
+
