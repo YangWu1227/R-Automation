@@ -1,12 +1,9 @@
 # Check R version ---------------------------------------------------------
 
-
 # This is a variable (a list) holding detailed information about the version of R running
 R.version
 
-
 # Edit environment variable 'R_LIBS_USER' ---------------------------------
-
 
 # This is by default set to ‘Library/R/R.version$arch/x.y/library’ for CRAN macOS builds
 # This function opens the configuration file for edit
@@ -32,12 +29,9 @@ fs::dir_create(Sys.getenv("R_LIBS_USER"))
 
 # List of packages installed in all libraries known to .libPaths() --------
 
-
 lapply(.libPaths(), list.dirs, recursive = FALSE, full.names = FALSE)
 
-
 # Core set of base and recommended packages -------------------------------
-
 
 core <- c(
   "base","boot", "class", "cluster", "codetools", "compiler", "datasets", "foreign", 
@@ -46,33 +40,16 @@ core <- c(
   "survival", "tcltk", "tools", "translations", "utils"
 )
 
-
 # List of add-on packages in previous library -----------------------------
-
 
 # Change the file path in dir_ls() as necessary
 pkgs <- fs::path_file(fs::dir_ls("/Library/Frameworks/R.framework/Versions/4.1/Resources/library"))
 
-
 # Install add-on packages in the new library ------------------------------
-
 
 # Since the argument 'lib' is missing, this defaults to the first element of .libPaths()
 # The first element of .libPaths() is our user library set using Sys.getenv("R_LIBS_USER")
 # The actual directory is created via fs::dir_create(Sys.getenv("R_LIBS_USER"))
 install.packages(pkgs)
 
-
 # Further resources on setup https://rstats.wtf/maintaining-r.html --------
-
-
-
-
-
-
-
-
-
-
-
-
