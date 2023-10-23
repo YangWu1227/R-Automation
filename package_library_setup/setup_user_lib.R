@@ -3,9 +3,9 @@
 # This script is used to set up a user-level library when a new major/minor version of R is installed, which does 
 # not automatically port over the packages we have installed in the previous R version. 
 #
-# The script can be run from the command line--- `Rscript -q -e path/to/setup_user_lib.R` --old_r_version x.x` --- for
+# The script can be run from the command line--- `Rscript -q -e path/to/setup_user_lib.R --old_r_version x.x` --- for
 # MacOS and  Linux. The `Rscript` scripting front-end should come with every new R installation. For more information, 
-# see section '3.7 Package libraries' of Hadley Wickham's R package (2e) book: https://r-pkgs.org/structure.html#sec-library 
+# see section '3.7 Package libraries' of Hadley Wickham's R package (2e): https://r-pkgs.org/structure.html#sec-library 
 # and the 'Running R in batch mode on Linux' blog post: https://www.cureffi.org/2014/01/15/running-r-batch-mode-linux/. 
 #
 # Note: this script also depends on the argparse package, and so it requires a Python binary on the host system.
@@ -31,6 +31,5 @@ args <- parser$parse_args()
 
 old_pkgs <- list.files(paste0("~/Library/R/x86_64/", args$old_r_version,"/library"))
 cat("Installing packages from old R version", args$old_r_version, "into new user library for R version", new_r_version, "\n")
-
 install.packages(pkgs=old_pkgs, lib=.libPaths()[[1]], repos = "https://cloud.r-project.org")
 cat("Finished setting up user library for R version", new_r_version, "\n")
